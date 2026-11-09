@@ -1,0 +1,728 @@
+
+/* =====================================
+   RACHA DE LECTURA BIBLICA
+   DISEÑO PRINCIPAL - 20 DIAS
+===================================== */
+
+/* VARIABLES */
+
+:root {
+    --azul: #142d4d;
+    --azul-claro: #1e4168;
+    --dorado: #d6a12d;
+    --fondo: #f5f7fa;
+    --blanco: #ffffff;
+    --texto: #26374b;
+    --gris: #8491a1;
+    --borde: #edf0f4;
+    --verde: #28734a;
+    --rojo: #9b3d35;
+}
+
+/* CONFIGURACION GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+
+/* =====================================
+   PORTADA
+===================================== */
+
+.hero {
+    min-height: 650px;
+    height: 90vh;
+    max-height: 850px;
+    position: relative;
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.12)
+        ),
+        url("img/banner-biblia.png") center 55% / cover no-repeat;
+    overflow: hidden;
+}
+
+/* BARRA SUPERIOR */
+
+.navbar {
+    width: 100%;
+    padding: 30px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--azul);
+}
+
+.brand-icon {
+    font-size: 55px;
+    border-right: 2px solid var(--azul);
+    padding-right: 18px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+.brand-text strong {
+    font-size: 29px;
+    font-weight: 800;
+}
+
+.brand-text b {
+    color: var(--dorado);
+}
+
+.reading-counter {
+    background: rgba(255,255,255,0.9);
+    padding: 13px 24px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.fire {
+    font-size: 40px;
+}
+
+.reading-counter div {
+    display: flex;
+    flex-direction: column;
+    color: var(--azul);
+}
+
+.reading-counter strong {
+    font-size: 23px;
+}
+
+.reading-counter span {
+    font-size: 13px;
+}
+
+/* CONTENIDO CENTRAL */
+
+.hero-content {
+    position: absolute;
+    width: 90%;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--azul);
+}
+
+.eyebrow {
+    display: inline-block;
+    border: 2px solid var(--azul);
+    padding: 10px 25px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    background: rgba(255,255,255,0.5);
+}
+
+.hero h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(45px, 7vw, 100px);
+    margin: 25px 0 15px;
+    font-weight: 400;
+}
+
+.hero h1 span {
+    color: var(--dorado);
+}
+
+.hero-subtitle {
+    font-size: clamp(16px, 2.5vw, 28px);
+    margin-bottom: 28px;
+}
+
+.verse {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 25px;
+    background: rgba(255,255,255,0.65);
+    border-radius: 20px;
+    max-width: 650px;
+}
+
+.book-icon {
+    font-size: 27px;
+}
+
+.verse p {
+    font-size: 14px;
+    font-style: italic;
+    text-align: left;
+}
+
+.verse strong {
+    border-left: 2px solid var(--azul);
+    padding-left: 18px;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    border: 2px solid white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+/* =====================================
+   CONTENIDO GENERAL
+===================================== */
+
+.container {
+    width: min(1100px, 90%);
+    margin: 75px auto;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-label {
+    color: var(--dorado);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    color: var(--azul);
+    font-size: clamp(25px, 4vw, 36px);
+    margin: 12px 0;
+}
+
+.section-heading p {
+    color: #718096;
+    font-size: 14px;
+}
+
+/* =====================================
+   ADMINISTRACION
+===================================== */
+
+.admin-section {
+    background: var(--blanco);
+    padding: 26px 30px;
+    border-radius: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 25px rgba(20,45,77,0.05);
+}
+
+.admin-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-heading h3 {
+    color: var(--azul);
+    font-size: 19px;
+    margin: 7px 0;
+}
+
+.admin-status {
+    color: #718096;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.admin-lock {
+    font-size: 32px;
+}
+
+.login-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+    margin-top: 22px;
+}
+
+.login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.login-field label {
+    color: var(--azul);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.login-field input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 13px;
+    border: 1px solid #dce3ec;
+    border-radius: 9px;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.login-field input:focus {
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 3px rgba(30,65,104,0.1);
+}
+
+.admin-button {
+    border: 0;
+    border-radius: 9px;
+    padding: 13px 18px;
+    background: var(--azul);
+    color: white;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.admin-button:hover {
+    background: var(--azul-claro);
+}
+
+.admin-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.admin-button-secondary {
+    background: #edf1f6;
+    color: var(--azul);
+}
+
+.admin-button-secondary:hover {
+    background: #dfe6ef;
+}
+
+.login-message {
+    grid-column: 1 / -1;
+    min-height: 16px;
+    font-size: 12px;
+    color: var(--rojo);
+}
+
+.login-message.success {
+    color: var(--verde);
+}
+
+.admin-session {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--borde);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-session[hidden] {
+    display: none;
+}
+
+.admin-session strong {
+    color: var(--azul);
+    font-size: 13px;
+}
+
+.admin-session p {
+    color: #718096;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* =====================================
+   TARJETAS Y TITULOS
+===================================== */
+
+.calendar-section,
+.participants-section {
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 25px rgba(20,45,77,0.05);
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-title h3 {
+    color: var(--azul);
+    font-size: 19px;
+}
+
+.section-title span {
+    color: var(--gris);
+    font-size: 12px;
+}
+
+/* =====================================
+   CALENDARIO
+===================================== */
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 12px;
+}
+
+.day-button {
+    background: #f3f5f8;
+    border: 1px solid #e6eaf0;
+    padding: 15px 5px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: var(--azul);
+    font-family: inherit;
+    transition: 0.2s;
+}
+
+.day-button strong {
+    display: block;
+    font-size: 16px;
+}
+
+.day-button span {
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+    color: var(--gris);
+}
+
+.day-button:hover,
+.day-button.active {
+    background: var(--azul);
+    color: white;
+    border-color: var(--azul);
+    transform: translateY(-3px);
+}
+
+.day-button.active span,
+.day-button:hover span {
+    color: #e3c77e;
+}
+
+/* =====================================
+   DIA SELECCIONADO
+===================================== */
+
+.selected-day-card {
+    background: var(--azul);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 20px rgba(20,45,77,0.12);
+}
+
+.selected-day-card .section-label {
+    color: #e4bd65;
+}
+
+.selected-day-card h3 {
+    font-size: 25px;
+    margin: 8px 0 4px;
+}
+
+.selected-day-card p {
+    color: #d4deeb;
+    font-size: 14px;
+}
+
+.selected-day-icon {
+    font-size: 48px;
+}
+
+/* =====================================
+   PARTICIPANTES Y PROGRESO
+===================================== */
+
+.participants-header,
+.participant-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(130px, 210px);
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+}
+
+.participants-header {
+    background: #f3f5f8;
+    border-radius: 10px;
+    color: var(--gris);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.participants-list {
+    margin-top: 8px;
+}
+
+.participant-row {
+    border-bottom: 1px solid var(--borde);
+    color: var(--azul);
+    font-size: 14px;
+}
+
+.participant-name {
+    font-weight: 700;
+}
+
+.participant-progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    color: var(--azul);
+}
+
+.participant-progress .fire-icon {
+    font-size: 21px;
+}
+
+.day-status {
+    color: var(--gris);
+    font-size: 11px;
+}
+
+.day-status.completed {
+    color: var(--verde);
+    font-weight: 700;
+}
+
+.mark-button {
+    margin-top: 5px;
+    border: 1px solid #dce3ec;
+    background: white;
+    color: var(--azul);
+    padding: 6px 9px;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mark-button:hover {
+    background: #edf3f9;
+}
+
+.mark-button.remove {
+    color: var(--rojo);
+}
+
+.empty-state {
+    padding: 35px 10px;
+    text-align: center;
+    color: var(--gris);
+    font-size: 14px;
+}
+
+.data-message {
+    margin-top: 12px;
+    color: var(--gris);
+    font-size: 12px;
+}
+
+/* =====================================
+   PIE DE PAGINA
+===================================== */
+
+footer {
+    background: var(--azul);
+    text-align: center;
+    color: white;
+    padding: 30px 15px;
+}
+
+footer p {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+footer span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* =====================================
+   DISEÑO RESPONSIVE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: 650px;
+        height: 85vh;
+        background-position: center;
+    }
+
+    .navbar {
+        padding: 20px 4%;
+    }
+
+    .brand-icon {
+        font-size: 35px;
+        padding-right: 10px;
+    }
+
+    .brand-text,
+    .brand-text strong {
+        font-size: 17px;
+    }
+
+    .reading-counter {
+        padding: 9px 13px;
+        gap: 8px;
+    }
+
+    .fire {
+        font-size: 28px;
+    }
+
+    .reading-counter strong {
+        font-size: 16px;
+    }
+
+    .reading-counter span {
+        font-size: 10px;
+    }
+
+    .hero-content {
+        top: 43%;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 1px;
+        padding: 9px 12px;
+    }
+
+    .hero h1 {
+        margin: 22px 0;
+    }
+
+    .verse {
+        gap: 10px;
+        padding: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .verse p {
+        font-size: 11px;
+    }
+
+    .verse strong {
+        font-size: 11px;
+    }
+
+    .container {
+        margin: 45px auto;
+    }
+
+    .calendar-section,
+    .participants-section,
+    .admin-section {
+        padding: 18px;
+    }
+
+    .days-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .day-button {
+        padding: 12px 3px;
+    }
+
+    .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .login-form {
+        grid-template-columns: 1fr;
+    }
+
+    .login-message {
+        grid-column: auto;
+    }
+
+    .admin-session {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .participants-header,
+    .participant-row {
+        grid-template-columns: minmax(0, 1fr) minmax(100px, 130px);
+        padding: 13px 8px;
+        font-size: 12px;
+    }
+
+    .selected-day-card {
+        padding: 20px;
+    }
+
+    .selected-day-card h3 {
+        font-size: 21px;
+    }
+
+    .selected-day-icon {
+        font-size: 38px;
+    }
+}

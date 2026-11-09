@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reto juvenil de lectura bíblica. Un día a la vez, creciendo en la Palabra.">
+    <title>Racha de Lectura Bíblica</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- PORTADA PRINCIPAL -->
+    <header class="hero">
+        <nav class="navbar">
+            <div class="brand">
+                <span class="brand-icon">✝</span>
+                <div class="brand-text">
+                    <strong>RACHA</strong>
+                    <span>DE <b>20 DÍAS</b></span>
+                </div>
+            </div>
+
+            <div class="reading-counter">
+                <span class="fire">🔥</span>
+                <div>
+                    <strong id="banner-participants">23</strong>
+                    <span>Participantes</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <span class="eyebrow">RETO JUVENIL DE LECTURA BÍBLICA</span>
+            <h1>Racha de <span>20</span> Días</h1>
+            <p class="hero-subtitle">Un día a la vez, creciendo en la <strong>Palabra.</strong></p>
+
+            <div class="verse">
+                <span class="book-icon">📖</span>
+                <p>"Tu palabra es una lámpara a mis pies y una luz en mi camino."</p>
+                <strong>Salmo 119:105</strong>
+            </div>
+        </div>
+
+        <a href="#seguimiento" class="scroll-down" aria-label="Ir al seguimiento">↓</a>
+    </header>
+
+    <!-- SEGUIMIENTO DE LECTURAS -->
+    <main id="seguimiento" class="container">
+        <section class="section-heading">
+            <span class="section-label">NUESTRO CAMINO</span>
+            <h2>Seguimiento de lecturas</h2>
+            <p>Cada día cuenta. Cada lectura nos acerca más a la Palabra.</p>
+        </section>
+
+        <!-- ACCESO ADMINISTRADOR -->
+        <section class="admin-section" aria-labelledby="admin-title">
+            <div class="admin-heading">
+                <div>
+                    <span class="section-label">ACCESO RESTRINGIDO</span>
+                    <h3 id="admin-title">Administración</h3>
+                    <p id="admin-status" class="admin-status" aria-live="polite">
+                        Modo de consulta: puedes ver el progreso de todos.
+                    </p>
+                </div>
+                <span class="admin-lock" aria-hidden="true">🔐</span>
+            </div>
+
+            <form id="login-form" class="login-form">
+                <div class="login-field">
+                    <label for="admin-email">Correo electrónico</label>
+                    <input id="admin-email" name="email" type="email" autocomplete="username"
+                           placeholder="Tu correo de administrador" required>
+                </div>
+                <div class="login-field">
+                    <label for="admin-password">Contraseña</label>
+                    <input id="admin-password" name="password" type="password"
+                           autocomplete="current-password" placeholder="Tu contraseña" required>
+                </div>
+                <button class="admin-button" type="submit" id="login-btn">Iniciar sesión</button>
+                <p id="login-message" class="login-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <div id="admin-session" class="admin-session" hidden>
+                <div>
+                    <strong>Sesión de administrador activa</strong>
+                    <p id="admin-email-label"></p>
+                </div>
+                <button class="admin-button admin-button-secondary" id="logout-btn" type="button">
+                    Cerrar sesión
+                </button>
+            </div>
+        </section>
+
+        <!-- CALENDARIO -->
+        <section class="calendar-section">
+            <div class="section-title">
+                <h3>Calendario de 20 días</h3>
+                <span>Selecciona un día</span>
+            </div>
+            <div id="days-grid" class="days-grid"></div>
+        </section>
+
+        <!-- DÍA SELECCIONADO -->
+        <section class="selected-day-card">
+            <div>
+                <span class="section-label">LECTURA DIARIA</span>
+                <h3 id="selected-day-title">Día 01</h3>
+                <p id="selected-day-date">09/11/2026</p>
+            </div>
+            <div class="selected-day-icon">📖</div>
+        </section>
+
+        <section class="participants-section">
+            <div class="section-title">
+                <h3>Lecturas del día</h3>
+                <span id="day-reading-total">0 de 23 han leído</span>
+            </div>
+
+            <div class="participants-header">
+                <span>PARTICIPANTE</span>
+                <span>PROGRESO / DÍA</span>
+            </div>
+
+            <div id="participants-list" class="participants-list">
+                <div class="empty-state">Cargando participantes...</div>
+            </div>
+            <p id="data-message" class="data-message" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Un día a la vez, creciendo en la Palabra. ❤️</p>
+        <span>Racha de Lectura Bíblica</span>
+    </footer>
+
+    <!-- LIBRERÍA SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <!-- NUESTRO JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
